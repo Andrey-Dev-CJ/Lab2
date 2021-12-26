@@ -1,4 +1,5 @@
 #include "Menues.h"
+#include <string>
 
 void menuFirst()
 {
@@ -54,9 +55,48 @@ void menuFirst()
 		}
 
 	}
-	
+
 }
 
 void menuSecond()
 {
+	bool flag = true;
+	int n;
+	std::string name;
+	while (flag) {
+		std::cout << "\n-------------Find words menu----------------\n";
+		std::cout << "1. Enter path to file\n";
+		std::cout << "2. Count of words\n";
+		std::cout << "It's time to choose, Mr.Freeman: ";
+		cin >> n;
+		switch (n)
+		{
+		case 1 :
+			std::cout << "\nEnter name without format: ";
+			cin >> name;
+			name += ".txt";
+
+			break;
+		case 2 :
+			if (name != "") {
+				int count;
+				std::cout << "\nEnter count of symbol in word: ";
+				cin >> count;
+				Counter c(name, count);
+				cout << "\n\nВ тексте слов длиной "<<count<<" и менее символов найдено : " << c.count() << endl;
+			}
+			else
+				std::cout << "\nChange 1 and enter filename...\n";
+			
+			break;
+		default:
+			flag = false;
+			break;
+		}
+		
+		
+		
+	}
+
+
 }
